@@ -1,0 +1,65 @@
+{
+  "name": "passport-discord.js",
+  "description": "Passport strategies for authenticating with Discord using OAuth 2.0.",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "homepage": "https://github.com/Bioblaze/passport-discord.js/",
+  "keywords": [
+    "passport",
+    "passportjs",
+    "discord",
+    "discordapp",
+    "discord.js",
+    "auth",
+    "token",
+    "authentication",
+    "identity",
+    "oauth",
+    "oauth2",
+    "strategy",
+    "express",
+    "bioblaze"
+  ],
+  "maintainers": [
+    {
+      "name": "Bioblaze Payne",
+      "email": "BioblazePayne@gmail.com",
+      "web": "https://BioblazePayne.site/"
+    }
+  ],
+  "author": {
+    "name": "Bioblaze Payne",
+    "email": "BioblazePayne@gmail.com",
+    "url": "https://BioblazePayne.site/"
+  },
+  "bugs": {
+    "web": "https://github.com/Bioblaze/passport-discord.js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bioblaze/passport-discord.js.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "passport-oauth2": "^1.5.0",
+    "pkginfo": "^0.4.1"
+  },
+  "devDependencies": {
+    "semantic-release": "^15.9.9",
+    "travis-deploy-once": "^5.0.2"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "release": {
+    "branch": "master"
+  }
+}
