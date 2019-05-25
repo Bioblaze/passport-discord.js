@@ -84,6 +84,73 @@ Once you refresh access token with new permissions, try to send this access toke
 ## Example
 
 ```javascript
+#!/bin/env node
+
+require('dotenv').config();
+
+var express = require('express');
+var session = require('express-session');
+var helmet = require('helmet');
+var bodyParser = require('body-parser');
+
+var passport = require('passport');
+var refresh = require('passport-oauth2-refresh');
+var _strategy = require('passport-discord.js').Strategy;
+
+var app = express();
+
+app.use(session({
+  key: process.env.SESSION_KEY,
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    secure: true
+  }
+}));
+
+app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+passport.serializeUser(function(u, d) {
+  d(null, u);
+});
+passport.deserializeUser(function(u, d) {
+  d(null, u);
+});
+
+var DiscordStrategy = new _strategy({
+  clientID: process.env.DISCORD_ID,
+  clientSecret: process.env.DISCORD_SECRET,
+  callbackURL: "http://127.0.0.1:3000/auth/discord/callback",
+  scope: ["guilds", "connections", "email"]
+}, function(accesstoken, refreshToken, profile, done) {
+  console.log(profile);
+  return done(null, profile);
+});
+
+passport.use(DiscordStrategy);
+refresh.use(DiscordStrategy);
+
+app.get('/', function(req, res) {
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    res.send(`Hello ${req.session.user.username}`);
+  }
+});
+
+app.get('/login', passport.authenticate('discord.js'}));
+app.get('/auth/discord/callback', passport.authenticate('discord.js', { failureRedirect: '/' }), function(req, res) {
+  req.session.user = req.user;
+  console.log(req.user);
+  console.log(req.query);
+  res.redirect('/');
+});
+app.listen(process.env.SITE_PORT, process.env.SITE_HOST, function() {
+  console.log(`Express Started`);
+});
 
 ```
 
