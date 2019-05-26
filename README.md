@@ -13,6 +13,7 @@
 
 [![Code Climate](https://codeclimate.com/github/Bioblaze/passport-discord.js/badges/gpa.svg)](https://codeclimate.com/github/Bioblaze/passport-discord.js)
 [![Discord Chat](https://img.shields.io/discord/165374225320771586.svg)](https://discord.gg/T8uVhzU)  
+[![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/BioblazePayne) 
 
 Discord is a trademark or registered trademark of Hammer & Chisel, Inc. in the U.S. and/or other countries. "passport-discord.js" is not operated by, sponsored by, or affiliated with Hammer & Chisel Inc. in any way.
 
