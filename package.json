@@ -1,7 +1,7 @@
 {
   "name": "passport-discord.js",
   "description": "Passport strategies for authenticating with Discord using OAuth 2.0.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./lib/index.js",
   "homepage": "https://github.com/Bioblaze/passport-discord.js/",
   "keywords": [
